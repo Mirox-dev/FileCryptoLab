@@ -1,3 +1,7 @@
+#pragma once
+#include "Cipher.h"
+
+
 class HillCipher : public Cipher {
 public:
     HillCipher(int a, int b, int c, int d);

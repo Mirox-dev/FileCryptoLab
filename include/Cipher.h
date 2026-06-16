@@ -1,3 +1,6 @@
+#pragma once
+#include <string>
+
 class Cipher {
 public:
     virtual std::string encrypt(const std::string& text) = 0;

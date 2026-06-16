@@ -1,3 +1,7 @@
+#pragma once
+#include "Cipher.h"
+
+
 class XorCipher : public Cipher {
 public:
     explicit XorCipher(std::string key);

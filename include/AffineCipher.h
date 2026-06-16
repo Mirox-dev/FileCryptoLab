@@ -1,3 +1,7 @@
+#pragma once
+#include "Cipher.h"
+
+
 class AffineCipher : public Cipher {
 public:
     AffineCipher(int a, int b);
