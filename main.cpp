@@ -3,7 +3,7 @@
 
 int main() {
     try {
-        std::string text = FileManager::readFile("data/input.txt");
+        std::string text = FileManager::readFile("input.txt");
 
         std::cout << "File content:" << std::endl;
         std::cout << text << std::endl;
