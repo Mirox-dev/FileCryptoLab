@@ -6,13 +6,21 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(FileCryptoLab
-    main.cpp
+    src/main.cpp
+
     src/FileManager.cpp
     src/AffineCipher.cpp
-    src/HillCipher.cpp
-    src/ConsoleMenu.cpp
-    src/MathUtils.cpp
     src/XorCipher.cpp
+    src/HillCipher.cpp
+    src/MathUtils.cpp
+
+    tests/TestRunner.cpp
+    tests/test_affine.cpp
+    tests/test_xor.cpp
+    tests/test_hill.cpp
 )
 
-target_include_directories(FileCryptoLab PRIVATE include)
+target_include_directories(FileCryptoLab PRIVATE
+    include
+    tests
+)
