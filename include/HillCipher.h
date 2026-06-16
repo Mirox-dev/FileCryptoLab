@@ -9,8 +9,8 @@ class HillCipher : public Cipher {
 public:
     HillCipher(int a, int b, int c, int d);
 
-    std::string encrypt(const std::string& text) override;
-    std::string decrypt(const std::string& text) override;
+    std::string encrypt(const std::string& text) const override;
+    std::string decrypt(const std::string& text) const override;
 
 private:
     static constexpr int AlphabetSize = 26;

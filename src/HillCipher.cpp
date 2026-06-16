@@ -35,6 +35,31 @@ namespace {
 
         return letters;
     }
+
+    std::string restoreNonLetters(
+        const std::string& source,
+        const std::string& transformedLetters
+    ) {
+        std::string result;
+        result.reserve(source.size());
+
+        std::size_t letterIndex = 0;
+        for (const char symbol : source) {
+            if (isEnglishLetter(symbol)) {
+                result.push_back(transformedLetters[letterIndex]);
+                ++letterIndex;
+            } else {
+                result.push_back(symbol);
+            }
+        }
+
+        while (letterIndex < transformedLetters.size()) {
+            result.push_back(transformedLetters[letterIndex]);
+            ++letterIndex;
+        }
+
+        return result;
+    }
 }
 
 HillCipher::HillCipher(int a, int b, int c, int d)
@@ -45,7 +70,7 @@ HillCipher::HillCipher(int a, int b, int c, int d)
     }
 }
 
-std::string HillCipher::encrypt(const std::string& text) {
+std::string HillCipher::encrypt(const std::string& text) const {
     Matrix2x2 encryptionMatrix{{
         {matrix_[0][0], matrix_[0][1]},
         {matrix_[1][0], matrix_[1][1]}
@@ -56,11 +81,16 @@ std::string HillCipher::encrypt(const std::string& text) {
         preparedText.push_back('X');
     }
 
-    return transform(preparedText, encryptionMatrix);
+    const std::string transformedText = transform(preparedText, encryptionMatrix);
+
+    return restoreNonLetters(text, transformedText);
 }
 
-std::string HillCipher::decrypt(const std::string& text) {
-    return transform(onlyEnglishLettersUppercase(text), inverseMatrix());
+std::string HillCipher::decrypt(const std::string& text) const {
+    const std::string preparedText = onlyEnglishLettersUppercase(text);
+    const std::string transformedText = transform(preparedText, inverseMatrix());
+
+    return restoreNonLetters(text, transformedText);
 }
 
 int HillCipher::determinant() const {
