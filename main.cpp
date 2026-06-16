@@ -1,19 +1,24 @@
+#include "AffineCipher.h"
+#include "FileManager.h"
+
+
 #include <iostream>
-#include "include/FileManager.h"
 
 int main() {
     try {
-        std::string text = FileManager::readFile("input.txt");
+        AffineCipher cipher(5, 8);
+        
 
-        std::cout << "File content:" << std::endl;
-        std::cout << text << std::endl;
+        std::string text = FileManager::readFile("data/input.txt");
+        std::string encrypted = cipher.encrypt(text);
+        std::string decrypted = cipher.decrypt(encrypted);
 
-        FileManager::writeFile("output.txt", text);
-
-        std::cout << "File was copied successfully." << std::endl;
+        std::cout << "Original:  " << text << '\n';
+        std::cout << "Encrypted: " << encrypted << '\n';
+        std::cout << "Decrypted: " << decrypted << '\n';
     }
     catch (const std::exception& error) {
-        std::cout << "Error: " << error.what() << std::endl;
+        std::cout << "Error: " << error.what() << '\n';
     }
 
     return 0;
