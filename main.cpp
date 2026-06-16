@@ -1,4 +1,5 @@
 #include "AffineCipher.h"
+#include "HillCipher.h"
 #include "FileManager.h"
 
 
@@ -6,7 +7,7 @@
 
 int main() {
     try {
-        AffineCipher cipher(5, 8);
+        HillCipher cipher(5, 8, 1, 3);
         
 
         std::string text = FileManager::readFile("data/input.txt");
