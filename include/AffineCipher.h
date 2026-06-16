@@ -16,10 +16,7 @@ private:
 
     int a_;
     int b_;
-
-    static int gcd(int left, int right);
-    static int mod(int value, int modulo);
-    static int modInverse(int value, int modulo);
+    int aInverse_;
 
     static bool isEnglishLetter(char symbol);
     static bool isUppercaseLetter(char symbol);

@@ -1,13 +1,15 @@
 #include "AffineCipher.h"
+#include "FileManager.h"
+
 
 #include <iostream>
-#include <string>
 
 int main() {
     try {
         AffineCipher cipher(5, 8);
+        
 
-        std::string text = "Hello World!";
+        std::string text = FileManager::readFile("data/input.txt");
         std::string encrypted = cipher.encrypt(text);
         std::string decrypted = cipher.decrypt(encrypted);
 
