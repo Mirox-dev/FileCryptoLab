@@ -12,7 +12,7 @@ add_executable(FileCryptoLab
     src/HillCipher.cpp
     src/ConsoleMenu.cpp
     src/MathUtils.cpp
-    src/XorCipher.cpp
+    src/GammaCipher.cpp
 )
 
 target_include_directories(FileCryptoLab PRIVATE include)
