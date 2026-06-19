@@ -1,6 +1,11 @@
 #include "GammaCipher.h"
+#include <stdexcept>
+
 
 GammaCipher::GammaCipher(const std::string& key) {
+    if (key.empty()) {
+        throw std::invalid_argument("Invalid gamma key: key cannot be empty");
+    }
     this->key = key;
 }
 
