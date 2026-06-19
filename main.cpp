@@ -1,26 +1,15 @@
-#include "AffineCipher.h"
-#include "HillCipher.h"
-#include "FileManager.h"
+#include "ConsoleMenu.h"
+// #include "TestRunner.h"
 
+#include <string>
 
-#include <iostream>
+int main(int argc, char* argv[]) {
+    // if (argc > 1 && std::string(argv[1]) == "--test") {
+    //     return runAllTests();
+    // }
 
-int main() {
-    try {
-        HillCipher cipher(5, 8, 1, 3);
-        
-
-        std::string text = FileManager::readFile("data/input.txt");
-        std::string encrypted = cipher.encrypt(text);
-        std::string decrypted = cipher.decrypt(encrypted);
-
-        std::cout << "Original:  " << text << '\n';
-        std::cout << "Encrypted: " << encrypted << '\n';
-        std::cout << "Decrypted: " << decrypted << '\n';
-    }
-    catch (const std::exception& error) {
-        std::cout << "Error: " << error.what() << '\n';
-    }
+    ConsoleMenu menu;
+    menu.run();
 
     return 0;
 }
