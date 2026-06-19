@@ -4,14 +4,14 @@
 #include <iostream>
 
 void runAffineCipherTests();
-void runXorCipherTests();
+void runGammaCipherTests();
 void runHillCipherTests();
 
 int runAllTests() {
     std::cout << "Running FileCryptoLab tests...\n\n";
 
     runAffineCipherTests();
-    runXorCipherTests();
+    runGammaCipherTests();
     runHillCipherTests();
 
     std::cout << '\n';

@@ -17,7 +17,7 @@ add_executable(FileCryptoLab
 
     tests/TestRunner.cpp
     tests/test_affine.cpp
-    tests/test_xor.cpp
+    tests/test_gamma.cpp
     tests/test_hill.cpp
 )
 
