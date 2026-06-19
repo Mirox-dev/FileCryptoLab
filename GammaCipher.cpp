@@ -4,7 +4,7 @@ GammaCipher::GammaCipher(const std::string& key) {
     this->key = key;
 }
 
-std::string GammaCipher::encrypt(const std::string& text) {
+std::string GammaCipher::encrypt(const std::string& text) const {
     std::string result = "";
 
     for (int i = 0; i < text.length(); i++) {
@@ -15,7 +15,7 @@ std::string GammaCipher::encrypt(const std::string& text) {
     return result;
 }
 
-std::string GammaCipher::decrypt(const std::string& text) {
+std::string GammaCipher::decrypt(const std::string& text) const {
     return encrypt(text);
 }
 
