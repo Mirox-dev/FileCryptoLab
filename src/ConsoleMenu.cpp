@@ -49,7 +49,7 @@ void ConsoleMenu::printMainMenu() const {
 void ConsoleMenu::printAlgorithmMenu() const {
     std::cout << "\nChoose cipher:\n";
     std::cout << "1. Affine cipher\n";
-    std::cout << "2. XOR (Gamma) cipher\n";
+    std::cout << "2. Gamma cipher\n";
     std::cout << "3. Hill cipher\n";
 }
 
@@ -94,7 +94,7 @@ std::unique_ptr<Cipher> ConsoleMenu::createCipher() {
         }
 
         case 2: {
-            const std::string key = readNonEmptyLine("Enter XOR key: ");
+            const std::string key = readNonEmptyLine("Enter Gamma key: ");
 
             return std::make_unique<GammaCipher>(key);
         }
